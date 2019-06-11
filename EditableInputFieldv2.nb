@@ -1,0 +1,615 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21459,        607]
+NotebookOptionsPosition[     20339,        564]
+NotebookOutlinePosition[     20689,        579]
+CellTagsIndexPosition[     20646,        576]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Button", "[", 
+     RowBox[{
+      RowBox[{"Keys", "@", "#"}], ",", 
+      RowBox[{"Print", "@", 
+       RowBox[{"Values", "@", "#"}]}], ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Palette\>\""}]}], "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<a\>\"", "\[Rule]", "3"}], ",", " ", 
+     RowBox[{"\"\<b\>\"", "\[Rule]", "5"}], ",", " ", 
+     RowBox[{"\"\<z\>\"", "\[Rule]", "10"}]}], "}"}]}],
+  FontWeight->"Plain"]], "Input",
+ CellChangeTimes->{{3.7298710916174474`*^9, 3.7298711747839966`*^9}, {
+  3.7298712360090046`*^9, 3.7298712383372736`*^9}, {3.76920650155958*^9, 
+  3.7692065291861367`*^9}},
+ ExpressionUUID -> "2c98616e-276b-40aa-ac84-82fcd620052a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   ButtonBox["\<\"a\"\>",
+    Appearance->"Palette",
+    ButtonFunction:>Print[
+      Values["a" -> 3]],
+    Evaluator->Automatic,
+    Method->"Preemptive"], ",", 
+   ButtonBox["\<\"b\"\>",
+    Appearance->"Palette",
+    ButtonFunction:>Print[
+      Values["b" -> 5]],
+    Evaluator->Automatic,
+    Method->"Preemptive"], ",", 
+   ButtonBox["\<\"z\"\>",
+    Appearance->"Palette",
+    ButtonFunction:>Print[
+      Values["z" -> 10]],
+    Evaluator->Automatic,
+    Method->"Preemptive"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.729871095555116*^9, 3.7298711756121273`*^9}, 
+   3.729871238962268*^9, {3.7692065143482656`*^9, 3.7692065350689645`*^9}},
+ ExpressionUUID -> "68959184-6ba0-45b9-aee2-dca7e451b4b2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"#", "/.", 
+    RowBox[{
+     RowBox[{"Rule", "[", 
+      RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", "y"}]}], "&"}], "/@", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\"\<a\>\"", "\[Rule]", "3"}], ",", " ", 
+    RowBox[{"\"\<b\>\"", "\[Rule]", "5"}], ",", " ", 
+    RowBox[{"\"\<z\>\"", "\[Rule]", "10"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.7298778591760683`*^9, 3.729877892943458*^9}, 
+   3.7692065703688602`*^9},
+ ExpressionUUID -> "1a2f4041-8bb2-4b4d-8703-f34acc3cde22"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "5", ",", "10"}], "}"}]], "Output",
+ CellChangeTimes->{3.7298778937091246`*^9, 3.7692065708688946`*^9},
+ ExpressionUUID -> "8da28414-a01b-4642-b755-cdf106a618e9"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nMax", "=", "10"}], ";"}], "\n", 
+ RowBox[{"Block", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"tab", ",", "boxes"}], "}"}], ",", 
+   RowBox[{
+    RowBox[{"tab", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{"i", ",", 
+           RowBox[{"FieldSize", "\[Rule]", "Tiny"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "nMax"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"boxes", "=", 
+     RowBox[{"ToBoxes", "@", 
+      RowBox[{"TableForm", "[", "tab", "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"boxes", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "=", 
+     RowBox[{"Function", "[", 
+      RowBox[{"e", ",", 
+       RowBox[{
+        RowBox[{"Print", "[", "\"\<replacement is updated\>\"", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"replacement", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"2", ",", "1"}], "]"}], "]"}]}], "&"}], "/@", 
+          "e"}]}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Cell", "[", 
+      RowBox[{
+       RowBox[{"BoxData", "@", "boxes"}], ",", "\"\<Input\>\""}], "]"}], "//",
+      "CellPrint"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.729878080641715*^9, 3.7298780806573443`*^9}, {
+  3.7298811012263126`*^9, 3.7298811757245207`*^9}, {3.729881295925672*^9, 
+  3.729881308238014*^9}, {3.7298813719067545`*^9, 3.7298813773132873`*^9}, {
+  3.729882235035911*^9, 3.729882235723447*^9}, {3.729882585727482*^9, 
+  3.7298825939129424`*^9}, {3.729882875631854*^9, 3.7298828801008744`*^9}, {
+  3.729954644784027*^9, 3.7299546523000436`*^9}, {3.7299546878693905`*^9, 
+  3.729954709589266*^9}, {3.7299548154495707`*^9, 3.7299548156058135`*^9}},
+ ExpressionUUID -> "af3f51b2-f53f-4cc1-921c-fc909ccfa0ec"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 1}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"2", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 2}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"3", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 3}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"4", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 4}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"5", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 5}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"6", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 6}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"7", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 9}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"8", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 8}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"9", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 3}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]},
+    {"10", 
+     TagBox[
+      DynamicModuleBox[{Typeset`i$$ = 10}, 
+       InputFieldBox[Dynamic[Typeset`i$$],
+        FieldSize->Tiny],
+       DynamicModuleValues:>{}],
+      InputField[
+       Setting[#], FieldSize -> Tiny]& ]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[$CellContext`e, 
+   Print["replacement is updated"]; $CellContext`replacement = 
+    Map[Part[#, 1] -> Part[#, 2, 1]& , $CellContext`e]]]], "Input",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.7692065785792427`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"i", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "5"}], "}"}]}], "]"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Column", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Row", "[", "\[IndentingNewLine]", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"With", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"i", "=", "i"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], ",", 
+             RowBox[{"InputField", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"x", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", "Number", ",", 
+               RowBox[{"FieldSize", "\[Rule]", "Tiny"}]}], "]"}]}], "}"}]}], 
+          "]"}], "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "5"}], "}"}]}], "]"}], 
+       "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"Dynamic", "@", "x"}]}], "}"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.729956286745832*^9, 3.729956310388936*^9}, {
+  3.7299565653803625`*^9, 3.7299566533999896`*^9}, {3.729957050253275*^9, 
+  3.729957069072424*^9}, {3.7299638848965497`*^9, 3.729963926773716*^9}},
+ ExpressionUUID -> "230b3b04-084f-4a28-be4c-4cf114e803ec"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`x$$ = {5, 78, 7, 4, 5}}, 
+  TagBox[GridBox[{
+     {
+      TemplateBox[{RowBox[{"{", 
+          RowBox[{"1", ",", 
+            InputFieldBox[
+             Dynamic[
+              Part[$CellContext`x$$, 1]], Number, FieldSize -> Tiny]}], "}"}],
+        RowBox[{"{", 
+          RowBox[{"2", ",", 
+            InputFieldBox[
+             Dynamic[
+              Part[$CellContext`x$$, 2]], Number, FieldSize -> Tiny]}], "}"}],
+        RowBox[{"{", 
+          RowBox[{"3", ",", 
+            InputFieldBox[
+             Dynamic[
+              Part[$CellContext`x$$, 3]], Number, FieldSize -> Tiny]}], "}"}],
+        RowBox[{"{", 
+          RowBox[{"4", ",", 
+            InputFieldBox[
+             Dynamic[
+              Part[$CellContext`x$$, 4]], Number, FieldSize -> Tiny]}], "}"}],
+        RowBox[{"{", 
+          RowBox[{"5", ",", 
+            InputFieldBox[
+             Dynamic[
+              Part[$CellContext`x$$, 5]], Number, FieldSize -> Tiny]}], "}"}]},
+       "RowDefault"]},
+     {
+      DynamicBox[ToBoxes[$CellContext`x$$, StandardForm],
+       ImageSizeCache->{102., {3., 9.}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{{3.7299562878865585`*^9, 3.7299563111701903`*^9}, {
+   3.7299565657397184`*^9, 3.7299566537124815`*^9}, {3.7299570606600337`*^9, 
+   3.7299570695568256`*^9}, 3.769206630999304*^9},
+ ExpressionUUID -> "2b975097-342c-4031-87b7-d54b4e7224bc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{"i", ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "5"}], "}"}]}], "]"}]], "Input",
+ ExpressionUUID -> "dc0a31e8-c1da-4133-a76f-f76d0dddde83"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}]], "Output",
+ CellChangeTimes->{3.729964098737065*^9, 3.769206662158432*^9},
+ ExpressionUUID -> "14edabe4-bd7c-4ef8-93cc-b9ca7754d864"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"DynamicModule", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"y", "=", 
+       RowBox[{"Keys", "@", "temp2"}]}], ",", 
+      RowBox[{"x", "=", 
+       RowBox[{"Values", "@", "temp2"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Column", "[", 
+        RowBox[{"Table", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"With", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"i", "=", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"y", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "->", 
+             RowBox[{"InputField", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"x", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", " ", 
+               RowBox[{"FieldSize", "\[Rule]", "Tiny"}]}], "]"}]}]}], 
+           "\[IndentingNewLine]", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"Length", "@", "temp2"}]}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"Dynamic", "[", 
+        RowBox[{
+         RowBox[{"op", "=", "x"}], ",", 
+         RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+          RowBox[{"{", "x", "}"}]}]}], "]"}]}], "}"}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.729964440070574*^9, 3.729964590970793*^9}, {
+   3.7299646408170843`*^9, 3.7299646440829163`*^9}, {3.7299647104457273`*^9, 
+   3.729964749699823*^9}, {3.7299647872486353`*^9, 3.7299648272350874`*^9}, {
+   3.729964863580679*^9, 3.7299649609000273`*^9}, {3.7299651889759283`*^9, 
+   3.7299652169461184`*^9}, {3.729965513574153*^9, 3.729965513980462*^9}, {
+   3.729965557310793*^9, 3.7299657088201895`*^9}, {3.7299658743399343`*^9, 
+   3.7299659581724*^9}, {3.729966261738676*^9, 3.7299663294404135`*^9}, {
+   3.729966362928418*^9, 3.7299663737726927`*^9}, 3.7299664207438946`*^9, {
+   3.729966476012374*^9, 3.729966511951724*^9}, {3.7299673821236897`*^9, 
+   3.7299673822799463`*^9}, {3.729967537834858*^9, 3.7299675948534327`*^9}, {
+   3.729968241627399*^9, 3.729968341993783*^9}, {3.7299684930031548`*^9, 
+   3.729968509129028*^9}},
+ ExpressionUUID -> "170d0d41-9fc0-4516-bb03-5a0c546f6cbb"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`y$$ = {"a", "b", "z"}, $CellContext`x$$ = {15,
+   1, 89}}, 
+  TemplateBox[{TagBox[
+     GridBox[{{
+        RowBox[{"\"a\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 1]], FieldSize -> Tiny]}]}, {
+        RowBox[{"\"b\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 2]], FieldSize -> Tiny]}]}, {
+        RowBox[{"\"z\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 3]], FieldSize -> Tiny]}]}}, 
+      DefaultBaseStyle -> "Column", 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+    DynamicBox[
+     ToBoxes[$CellContext`op = $CellContext`x$$, StandardForm], 
+     TrackedSymbols :> {$CellContext`x$$}]},
+   "RowDefault"],
+  DynamicModuleValues:>{}]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{{3.7299649087392673`*^9, 3.729964930445286*^9}, 
+   3.729964961196876*^9, {3.729965190007192*^9, 3.7299652173992357`*^9}, 
+   3.729965514996108*^9, {3.729965562811081*^9, 3.7299655820777025`*^9}, {
+   3.7299656203296814`*^9, 3.729965709398306*^9}, 3.7299658895751*^9, {
+   3.7299659233268456`*^9, 3.7299659586411753`*^9}, {3.729966262566806*^9, 
+   3.729966285021096*^9}, {3.7299663195853834`*^9, 3.729966329940421*^9}, 
+   3.7299663741945896`*^9, 3.7299664212751527`*^9, 3.7299664785281205`*^9, 
+   3.7299665127173896`*^9, 3.7299666053180094`*^9, 3.729967382811187*^9, {
+   3.729967540538085*^9, 3.729967595384676*^9}, {3.7299682424086647`*^9, 
+   3.7299682631597357`*^9}, {3.7299682985521955`*^9, 3.729968342900038*^9}, {
+   3.729968493362547*^9, 3.729968509988411*^9}, 3.7692066684189234`*^9, {
+   3.769207002849062*^9, 3.7692070166389666`*^9}},
+ ExpressionUUID -> "825a7625-4073-4a13-830a-e27e8fa34837"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "make", " ", "sure", " ", "tracked", " ", "is", " ", "unset", " ", 
+    "before"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Clear", "[", "tracked1", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"editableColumn", "[", 
+     RowBox[{"data_", ",", "tracked_"}], "]"}], ":=", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"y", "=", 
+         RowBox[{"Keys", "@", "data"}]}], ",", 
+        RowBox[{"x", "=", 
+         RowBox[{"Values", "@", "data"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Column", "[", 
+          RowBox[{"Table", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"With", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"i", "=", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"y", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "->", 
+               RowBox[{"InputField", "[", 
+                RowBox[{
+                 RowBox[{"Dynamic", "[", 
+                  RowBox[{"x", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", " ", 
+                 RowBox[{"FieldSize", "\[Rule]", "Tiny"}]}], "]"}]}]}], 
+             "\[IndentingNewLine]", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{"Length", "@", "temp2"}]}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", 
+            RowBox[{"tracked", "=", "x"}], "]"}], ",", "Transparent"}], 
+          "]"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.729968432764063*^9, 3.729968474078705*^9}, {
+  3.7299685368960896`*^9, 3.729968640354536*^9}, {3.729968677365161*^9, 
+  3.729968694459797*^9}, {3.729968838982941*^9, 3.7299688693610907`*^9}, {
+  3.729968924020195*^9, 3.7299689492715178`*^9}, {3.729968981460682*^9, 
+  3.729969022447178*^9}, {3.72996907238898*^9, 3.729969089843045*^9}, {
+  3.72996919533286*^9, 3.7299691962235203`*^9}, {3.7692067513090377`*^9, 
+  3.769206757273172*^9}},
+ ExpressionUUID -> "cefe2638-618f-468a-a8aa-2d4e92c6dec4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"editableColumn", "[", 
+  RowBox[{"temp2", ",", "tracked1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7299685810389743`*^9, 3.7299686013838067`*^9}, {
+  3.729968928832958*^9, 3.729968929520477*^9}, {3.7299689604127183`*^9, 
+  3.7299689913205304`*^9}, {3.729969106250148*^9, 3.7299691073907895`*^9}},
+ ExpressionUUID -> "fa195dab-c540-4786-8613-593babc6734b"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`y$$ = {"a", "b", "z"}, $CellContext`x$$ = {89,
+   8, 588}}, 
+  TemplateBox[{TagBox[
+     GridBox[{{
+        RowBox[{"\"a\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 1]], FieldSize -> Tiny]}]}, {
+        RowBox[{"\"b\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 2]], FieldSize -> Tiny]}]}, {
+        RowBox[{"\"z\"", "\[Rule]", 
+          InputFieldBox[
+           Dynamic[
+            Part[$CellContext`x$$, 3]], FieldSize -> Tiny]}]}}, 
+      DefaultBaseStyle -> "Column", 
+      GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+    StyleBox[
+     DynamicBox[
+      ToBoxes[$CellContext`tracked1 = $CellContext`x$$, StandardForm]], 
+     GrayLevel[0, 0], StripOnInput -> False]},
+   "RowDefault"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{{3.7299685897581635`*^9, 3.7299686018837976`*^9}, {
+   3.729968662440712*^9, 3.7299686798965397`*^9}, 3.729968854954094*^9, 
+   3.7299689299579773`*^9, 3.729968961443986*^9, {3.7299689920549417`*^9, 
+   3.7299690347151546`*^9}, 3.7692067596492133`*^9},
+ ExpressionUUID -> "b98121b9-929e-479f-b048-2df2d5341e4d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["tracked1"], "Input",
+ CellChangeTimes->{{3.769206774917179*^9, 3.7692067760198965`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"89", ",", "8", ",", "588"}], "}"}]], "Output",
+ CellChangeTimes->{{3.769206776469246*^9, 3.7692067958079185`*^9}, 
+   3.7692070809094105`*^9}]
+}, Open  ]]
+},
+WindowSize->{1215, 665},
+WindowMargins->{{Automatic, 132}, {Automatic, 149}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 748, 19, 30, "Input"],
+Cell[1331, 43, 749, 23, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2117, 71, 534, 14, 30, "Input"],
+Cell[2654, 87, 211, 4, 30, "Output"]
+}, Open  ]],
+Cell[2880, 94, 2077, 52, 126, "Input"],
+Cell[4960, 148, 2993, 98, 252, "Input"],
+Cell[CellGroupData[{
+Cell[7978, 250, 1556, 38, 164, "Input"],
+Cell[9537, 290, 1609, 42, 54, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11183, 337, 189, 5, 30, "Input"],
+Cell[11375, 344, 226, 4, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11638, 353, 2348, 52, 145, "Input"],
+Cell[13989, 407, 1934, 40, 84, "Output"]
+}, Open  ]],
+Cell[15938, 450, 2339, 56, 183, "Input"],
+Cell[CellGroupData[{
+Cell[18302, 510, 380, 6, 30, "Input"],
+Cell[18685, 518, 1314, 31, 84, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20036, 554, 102, 1, 30, "Input"],
+Cell[20141, 557, 182, 4, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
